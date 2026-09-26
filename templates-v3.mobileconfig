@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     Jamf Student Mac — LEKTIONSSKABELONER (test v3, device-protokol: Terminal + Claude tilladt i alle skabeloner)
+     Domæne:  com.jamf.studentmac.templates  (læses af agenten, T1 TemplateStore)
+     Scope:   System — lander i /Library/Managed Preferences/com.jamf.studentmac.templates.plist
+     Removal: Disallowed — fjernes via MDM
+
+     Skabeloner gør INGENTING alene. De aktiveres først af en trigger i
+     com.jamf.studentmac.teacher (se trigger-*.mobileconfig).
+     Kontrakt: docs/LESSON-TEMPLATES-SPEC.md i Enforcer-Student.
+
+     Kanal-uafhængig: samme fil kan leveres som Configurator-profil,
+     ZMS CustomPayload, Pro osxconfigurationprofiles eller Blueprint
+     Custom Declaration (com.apple.configuration.legacy → ProfileURL).
+     Ny udgave af skabelonerne = ny PayloadUUID (B3 måler om det udskifter filen).
+     ═══════════════════════════════════════════════════════════════ -->
+
+<plist version="1.0">
+<dict>
+	<key>PayloadDisplayName</key><string>Jamf Student Mac — Lektionsskabeloner (test v3)</string>
+	<key>PayloadDescription</key><string>Lesson templates for Jamf Student Mac. Inert without a teacher trigger.</string>
+	<key>PayloadOrganization</key><string>AppsByRalo test</string>
+	<key>PayloadIdentifier</key><string>dk.appsbyralo.test.templates</string>
+	<key>PayloadUUID</key><string>43A84EDD-E00F-446E-811E-F909C1602952</string>
+	<key>PayloadType</key><string>Configuration</string>
+	<key>PayloadVersion</key><integer>3</integer>
+	<key>PayloadScope</key><string>System</string>
+	<key>PayloadRemovalDisallowed</key><true/>
+
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadIdentifier</key><string>dk.appsbyralo.test.templates.settings</string>
+			<key>PayloadUUID</key><string>0E3AD2C9-3EA0-4DC1-88D3-D43978E0E503</string>
+			<key>PayloadType</key><string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadVersion</key><integer>1</integer>
+			<key>PayloadDisplayName</key><string>Lesson templates</string>
+
+			<key>PayloadContent</key>
+			<dict>
+				<key>com.jamf.studentmac.templates</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>schemaVersion</key><integer>1</integer>
+								<key>templates</key>
+								<array>
+									<!-- T-D2: apps + web, ingen lås -->
+									<dict>
+										<key>templateID</key><string>math-basic</string>
+										<key>displayName</key><string>Matematik</string>
+										<key>allowedAppBundleIDs</key>
+										<array>
+											<string>com.apple.Terminal</string>
+											<string>com.anthropic.claudefordesktop</string>
+											<string>com.apple.Safari</string>
+											<string>com.apple.calculator</string>
+											<string>com.apple.Numbers</string>
+										</array>
+										<key>allowedURLs</key>
+										<array>
+											<string>geogebra.org</string>
+											<string>matematikfessor.dk</string>
+										</array>
+										<key>lockOnStart</key><false/>
+										<key>maxDurationMinutes</key><integer>90</integer>
+									</dict>
+									<!-- T-D3: skift til anden skabelon (kun apps, ingen web-ændring) -->
+									<dict>
+										<key>templateID</key><string>skriv</string>
+										<key>displayName</key><string>Skrivning</string>
+										<key>allowedAppBundleIDs</key>
+										<array>
+											<string>com.apple.Terminal</string>
+											<string>com.anthropic.claudefordesktop</string>
+											<string>com.apple.TextEdit</string>
+											<string>com.apple.Pages</string>
+										</array>
+										<key>lockOnStart</key><false/>
+										<key>maxDurationMinutes</key><integer>45</integer>
+									</dict>
+									<!-- "eyes on me"-skabelon: ingen apps, ingen web, lås fra start -->
+									<dict>
+										<key>templateID</key><string>se-op</string>
+										<key>displayName</key><string>Se op</string>
+										<key>allowedAppBundleIDs</key>
+										<array>
+											<string>com.apple.Terminal</string>
+											<string>com.anthropic.claudefordesktop</string>
+										</array>
+										<key>lockOnStart</key><true/>
+										<key>maxDurationMinutes</key><integer>15</integer>
+									</dict>
+									<!-- v2: 4. skabelon — beviser at en ny udgave er nået frem -->
+									<dict>
+										<key>templateID</key><string>laes</string>
+										<key>displayName</key><string>Læsning</string>
+										<key>allowedAppBundleIDs</key>
+										<array>
+											<string>com.apple.Terminal</string>
+											<string>com.anthropic.claudefordesktop</string>
+											<string>com.apple.iBooksX</string>
+											<string>com.apple.Safari</string>
+										</array>
+										<key>lockOnStart</key><false/>
+										<key>maxDurationMinutes</key><integer>60</integer>
+									</dict>
+								</array>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
