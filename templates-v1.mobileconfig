@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 
 <!-- ═══════════════════════════════════════════════════════════════════
-     Jamf Student Mac — LEKTIONSSKABELONER (test v2, B3-måling: ny udgave på samme URL)
+     Jamf Student Mac — LEKTIONSSKABELONER (test v1, B1-måling + T-D1..T-D3)
      Domæne:  com.jamf.studentmac.templates  (læses af agenten, T1 TemplateStore)
      Scope:   System — lander i /Library/Managed Preferences/com.jamf.studentmac.templates.plist
      Removal: Disallowed — fjernes via MDM
@@ -19,13 +19,13 @@
 
 <plist version="1.0">
 <dict>
-	<key>PayloadDisplayName</key><string>Jamf Student Mac — Lektionsskabeloner (test v2)</string>
+	<key>PayloadDisplayName</key><string>Jamf Student Mac — Lektionsskabeloner (test v1)</string>
 	<key>PayloadDescription</key><string>Lesson templates for Jamf Student Mac. Inert without a teacher trigger.</string>
 	<key>PayloadOrganization</key><string>AppsByRalo test</string>
 	<key>PayloadIdentifier</key><string>dk.appsbyralo.test.templates</string>
-	<key>PayloadUUID</key><string>978563DF-3F13-4AC8-B677-9265D69EE78E</string>
+	<key>PayloadUUID</key><string>90DC218A-1FE3-417E-99B0-817F2EF1824A</string>
 	<key>PayloadType</key><string>Configuration</string>
-	<key>PayloadVersion</key><integer>2</integer>
+	<key>PayloadVersion</key><integer>1</integer>
 	<key>PayloadScope</key><string>System</string>
 	<key>PayloadRemovalDisallowed</key><true/>
 
@@ -33,7 +33,7 @@
 	<array>
 		<dict>
 			<key>PayloadIdentifier</key><string>dk.appsbyralo.test.templates.settings</string>
-			<key>PayloadUUID</key><string>975B02AC-87AD-4B02-AA5A-DC55916313FF</string>
+			<key>PayloadUUID</key><string>187F5F2B-4C78-4B7B-8DBD-64FC7C870F52</string>
 			<key>PayloadType</key><string>com.apple.ManagedClient.preferences</string>
 			<key>PayloadVersion</key><integer>1</integer>
 			<key>PayloadDisplayName</key><string>Lesson templates</string>
@@ -86,18 +86,6 @@
 										<key>displayName</key><string>Se op</string>
 										<key>lockOnStart</key><true/>
 										<key>maxDurationMinutes</key><integer>15</integer>
-									</dict>
-									<!-- v2: 4. skabelon — beviser at en ny udgave er nået frem -->
-									<dict>
-										<key>templateID</key><string>laes</string>
-										<key>displayName</key><string>Læsning</string>
-										<key>allowedAppBundleIDs</key>
-										<array>
-											<string>com.apple.iBooksX</string>
-											<string>com.apple.Safari</string>
-										</array>
-										<key>lockOnStart</key><false/>
-										<key>maxDurationMinutes</key><integer>60</integer>
 									</dict>
 								</array>
 							</dict>
